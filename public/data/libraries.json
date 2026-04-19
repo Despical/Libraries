@@ -1,0 +1,203 @@
+{
+  "generatedAt": "2026-04-19T17:38:17.475Z",
+  "libraries": [
+    {
+      "id": "commons",
+      "name": "Commons",
+      "description": "Shared Java and Minecraft utilities for plugin development.",
+      "repoUrl": "https://github.com/Despical/Commons",
+      "stargazersUrl": "https://github.com/Despical/Commons",
+      "stars": 5,
+      "sourceKind": "maven-central",
+      "sourceLabel": "Maven Central",
+      "versionLink": "https://central.sonatype.com/artifact/dev.despical/commons",
+      "coordinates": {
+        "groupId": "dev.despical",
+        "artifactId": "commons",
+        "version": "2.1.0"
+      },
+      "badges": [
+        {
+          "alt": "commons Maven Central version",
+          "href": "https://central.sonatype.com/artifact/dev.despical/commons",
+          "src": "https://img.shields.io/maven-central/v/dev.despical/commons?style=for-the-badge&label=Maven%20Central"
+        },
+        {
+          "alt": "Commons release badge",
+          "href": "https://github.com/Despical/Commons/releases",
+          "src": "https://img.shields.io/github/v/release/Despical/Commons?display_name=tag&style=for-the-badge&label=GitHub"
+        }
+      ],
+      "snippets": {
+        "maven": "<dependency>\n  <groupId>dev.despical</groupId>\n  <artifactId>commons</artifactId>\n  <version>2.1.0</version>\n</dependency>",
+        "groovy": "dependencies {\n    implementation 'dev.despical:commons:2.1.0'\n}",
+        "kotlin": "dependencies {\n    implementation(\"dev.despical:commons:2.1.0\")\n}"
+      }
+    },
+    {
+      "id": "command-framework",
+      "name": "CommandFramework",
+      "description": "Annotation-driven command framework for Minecraft plugins.",
+      "repoUrl": "https://github.com/Despical/CommandFramework",
+      "stargazersUrl": "https://github.com/Despical/CommandFramework",
+      "stars": 32,
+      "sourceKind": "maven-central",
+      "sourceLabel": "Maven Central",
+      "versionLink": "https://central.sonatype.com/artifact/dev.despical/command-framework",
+      "coordinates": {
+        "groupId": "dev.despical",
+        "artifactId": "command-framework",
+        "version": "1.6.2"
+      },
+      "badges": [
+        {
+          "alt": "command-framework Maven Central version",
+          "href": "https://central.sonatype.com/artifact/dev.despical/command-framework",
+          "src": "https://img.shields.io/maven-central/v/dev.despical/command-framework?style=for-the-badge&label=Maven%20Central"
+        },
+        {
+          "alt": "CommandFramework release badge",
+          "href": "https://github.com/Despical/CommandFramework/releases",
+          "src": "https://img.shields.io/github/v/release/Despical/CommandFramework?display_name=tag&style=for-the-badge&label=GitHub"
+        }
+      ],
+      "snippets": {
+        "maven": "<dependency>\n  <groupId>dev.despical</groupId>\n  <artifactId>command-framework</artifactId>\n  <version>1.6.2</version>\n</dependency>",
+        "groovy": "dependencies {\n    implementation 'dev.despical:command-framework:1.6.2'\n}",
+        "kotlin": "dependencies {\n    implementation(\"dev.despical:command-framework:1.6.2\")\n}"
+      }
+    },
+    {
+      "id": "inventory-framework",
+      "name": "InventoryFramework",
+      "description": "GUI and inventory composition framework for server-side menus.",
+      "repoUrl": "https://github.com/Despical/InventoryFramework",
+      "stargazersUrl": "https://github.com/Despical/InventoryFramework",
+      "stars": 8,
+      "sourceKind": "maven-central",
+      "sourceLabel": "Maven Central",
+      "versionLink": "https://central.sonatype.com/artifact/dev.despical/inventory-framework",
+      "coordinates": {
+        "groupId": "dev.despical",
+        "artifactId": "inventory-framework",
+        "version": "2.4.7"
+      },
+      "badges": [
+        {
+          "alt": "inventory-framework Maven Central version",
+          "href": "https://central.sonatype.com/artifact/dev.despical/inventory-framework",
+          "src": "https://img.shields.io/maven-central/v/dev.despical/inventory-framework?style=for-the-badge&label=Maven%20Central"
+        },
+        {
+          "alt": "InventoryFramework release badge",
+          "href": "https://github.com/Despical/InventoryFramework/releases",
+          "src": "https://img.shields.io/github/v/release/Despical/InventoryFramework?display_name=tag&style=for-the-badge&label=GitHub"
+        }
+      ],
+      "snippets": {
+        "maven": "<dependency>\n  <groupId>dev.despical</groupId>\n  <artifactId>inventory-framework</artifactId>\n  <version>2.4.7</version>\n</dependency>",
+        "groovy": "dependencies {\n    implementation 'dev.despical:inventory-framework:2.4.7'\n}",
+        "kotlin": "dependencies {\n    implementation(\"dev.despical:inventory-framework:2.4.7\")\n}"
+      }
+    },
+    {
+      "id": "file-items",
+      "name": "FileItems",
+      "description": "YAML-driven item loading utilities for plugin content pipelines.",
+      "repoUrl": "https://github.com/Despical/FileItems",
+      "stargazersUrl": "https://github.com/Despical/FileItems",
+      "stars": 1,
+      "sourceKind": "maven-central",
+      "sourceLabel": "Maven Central",
+      "versionLink": "https://central.sonatype.com/artifact/dev.despical/file-items",
+      "coordinates": {
+        "groupId": "dev.despical",
+        "artifactId": "file-items",
+        "version": "1.2.4"
+      },
+      "badges": [
+        {
+          "alt": "file-items Maven Central version",
+          "href": "https://central.sonatype.com/artifact/dev.despical/file-items",
+          "src": "https://img.shields.io/maven-central/v/dev.despical/file-items?style=for-the-badge&label=Maven%20Central"
+        },
+        {
+          "alt": "FileItems release badge",
+          "href": "https://github.com/Despical/FileItems/releases",
+          "src": "https://img.shields.io/github/v/release/Despical/FileItems?display_name=tag&style=for-the-badge&label=GitHub"
+        }
+      ],
+      "snippets": {
+        "maven": "<dependency>\n  <groupId>dev.despical</groupId>\n  <artifactId>file-items</artifactId>\n  <version>1.2.4</version>\n</dependency>",
+        "groovy": "dependencies {\n    implementation 'dev.despical:file-items:1.2.4'\n}",
+        "kotlin": "dependencies {\n    implementation(\"dev.despical:file-items:1.2.4\")\n}"
+      }
+    },
+    {
+      "id": "particle-lib",
+      "name": "ParticleLib",
+      "description": "Cross-version particle API with a fluent builder for visual effects.",
+      "repoUrl": "https://github.com/Despical/ParticleLib",
+      "stargazersUrl": "https://github.com/Despical/ParticleLib",
+      "stars": 2,
+      "sourceKind": "jitpack",
+      "sourceLabel": "JitPack",
+      "versionLink": "https://jitpack.io/#Despical/ParticleLib/1.0.8",
+      "coordinates": {
+        "groupId": "com.github.Despical",
+        "artifactId": "ParticleLib",
+        "version": "1.0.8"
+      },
+      "badges": [
+        {
+          "alt": "ParticleLib JitPack version",
+          "href": "https://jitpack.io/#Despical/ParticleLib",
+          "src": "https://img.shields.io/jitpack/v/github/Despical/ParticleLib?style=for-the-badge&label=JitPack"
+        },
+        {
+          "alt": "ParticleLib release badge",
+          "href": "https://github.com/Despical/ParticleLib/releases",
+          "src": "https://img.shields.io/github/v/release/Despical/ParticleLib?display_name=tag&style=for-the-badge&label=GitHub"
+        }
+      ],
+      "snippets": {
+        "maven": "<repositories>\n  <repository>\n    <id>jitpack.io</id>\n    <url>https://jitpack.io</url>\n  </repository>\n</repositories>\n\n<dependency>\n  <groupId>com.github.Despical</groupId>\n  <artifactId>ParticleLib</artifactId>\n  <version>1.0.8</version>\n</dependency>",
+        "groovy": "repositories {\n    mavenCentral()\n    maven { url 'https://jitpack.io' }\n}\n\ndependencies {\n    implementation 'com.github.Despical:ParticleLib:1.0.8'\n}",
+        "kotlin": "repositories {\n    mavenCentral()\n    maven(\"https://jitpack.io\")\n}\n\ndependencies {\n    implementation(\"com.github.Despical:ParticleLib:1.0.8\")\n}"
+      }
+    },
+    {
+      "id": "item-nbt-api",
+      "name": "Item-NBT-API",
+      "description": "NBT access layer for item metadata and plugin integrations.",
+      "repoUrl": "https://github.com/Despical/Item-NBT-API",
+      "stargazersUrl": "https://github.com/Despical/Item-NBT-API",
+      "stars": 0,
+      "sourceKind": "jitpack",
+      "sourceLabel": "JitPack",
+      "versionLink": "https://jitpack.io/#Despical/Item-NBT-API/2.12.5",
+      "coordinates": {
+        "groupId": "com.github.Despical",
+        "artifactId": "Item-NBT-API",
+        "version": "2.12.5"
+      },
+      "badges": [
+        {
+          "alt": "Item-NBT-API JitPack version",
+          "href": "https://jitpack.io/#Despical/Item-NBT-API",
+          "src": "https://img.shields.io/jitpack/v/github/Despical/Item-NBT-API?style=for-the-badge&label=JitPack"
+        },
+        {
+          "alt": "Item-NBT-API release badge",
+          "href": "https://github.com/Despical/Item-NBT-API/releases",
+          "src": "https://img.shields.io/github/v/release/Despical/Item-NBT-API?display_name=tag&style=for-the-badge&label=GitHub"
+        }
+      ],
+      "snippets": {
+        "maven": "<repositories>\n  <repository>\n    <id>jitpack.io</id>\n    <url>https://jitpack.io</url>\n  </repository>\n</repositories>\n\n<dependency>\n  <groupId>com.github.Despical</groupId>\n  <artifactId>Item-NBT-API</artifactId>\n  <version>2.12.5</version>\n</dependency>",
+        "groovy": "repositories {\n    mavenCentral()\n    maven { url 'https://jitpack.io' }\n}\n\ndependencies {\n    implementation 'com.github.Despical:Item-NBT-API:2.12.5'\n}",
+        "kotlin": "repositories {\n    mavenCentral()\n    maven(\"https://jitpack.io\")\n}\n\ndependencies {\n    implementation(\"com.github.Despical:Item-NBT-API:2.12.5\")\n}"
+      }
+    }
+  ]
+}
