@@ -28,6 +28,8 @@ interface DashboardData {
   libraries: LibraryEntry[]
 }
 
+const cardSelector = '[data-library-card]'
+
 const tabLabels: Record<TabKey, string> = {
   maven: 'Maven',
   groovy: 'Gradle Groovy',
@@ -57,6 +59,8 @@ appRoot.innerHTML = `
 
 void initialize()
 
+type ScrollMode = ScrollBehavior | false
+
 async function initialize() {
   try {
     const response = await fetch('./data/libraries.json', { cache: 'no-store' })
@@ -68,6 +72,7 @@ async function initialize() {
     const data = (await response.json()) as DashboardData
     renderDashboard(data)
     bindInteractions()
+    syncHashSelection(window.location.hash ? 'auto' : false)
   } catch (error) {
     renderError(error instanceof Error ? error.message : 'Unexpected error.')
   }
@@ -160,7 +165,7 @@ function renderCard(library: LibraryEntry) {
     .join('')
 
   return `
-    <article class="library-card">
+    <article class="library-card" id="${library.id}" data-library-card data-library-anchor="${library.id}">
       <div class="card-topline">
         <div class="card-topline-main">
           <a class="source-pill source-${library.sourceKind}" href="${library.versionLink}" target="_blank" rel="noreferrer" aria-label="Open ${library.sourceLabel} page for ${library.name}">
@@ -181,7 +186,12 @@ function renderCard(library: LibraryEntry) {
 
       <div class="card-header">
         <div>
-          <h3>${library.name}</h3>
+          <div class="card-title-row">
+            <a class="card-anchor" href="#${library.id}" aria-label="Link to ${library.name}">
+              ${renderAnchorIcon()}
+            </a>
+            <h3>${library.name}</h3>
+          </div>
           <p>${library.description}</p>
         </div>
       </div>
@@ -209,10 +219,22 @@ function renderCard(library: LibraryEntry) {
 }
 
 function bindInteractions() {
+  window.addEventListener('hashchange', () => {
+    syncHashSelection('smooth')
+  })
+
   appRoot.addEventListener('click', async (event) => {
     const target = event.target
 
     if (!(target instanceof HTMLElement)) {
+      return
+    }
+
+    const anchorLink = target.closest<HTMLAnchorElement>('.card-anchor')
+
+    if (anchorLink) {
+      event.preventDefault()
+      updateHashTarget(anchorLink.getAttribute('href') ?? '')
       return
     }
 
@@ -244,6 +266,51 @@ function bindInteractions() {
       }, 1400)
     }
   })
+}
+
+function updateHashTarget(hash: string) {
+  if (!hash.startsWith('#')) {
+    return
+  }
+
+  if (window.location.hash !== hash) {
+    window.history.pushState(null, '', hash)
+  }
+
+  syncHashSelection('smooth')
+}
+
+function syncHashSelection(scrollBehavior: ScrollMode = false) {
+  const normalizedHash = normalizeHash(window.location.hash)
+  const cards = document.querySelectorAll<HTMLElement>(cardSelector)
+
+  let activeCard: HTMLElement | null = null
+
+  cards.forEach((card) => {
+    const anchor = card.dataset.libraryAnchor ?? card.id
+    const isActive = normalizedHash !== '' && normalizeHash(anchor) === normalizedHash
+    card.classList.toggle('is-targeted', isActive)
+
+    if (isActive) {
+      activeCard = card
+    }
+  })
+
+  if (!activeCard) {
+    return
+  }
+
+  if (!scrollBehavior) {
+    return
+  }
+
+  window.requestAnimationFrame(() => {
+    activeCard?.scrollIntoView({ behavior: scrollBehavior, block: 'center' })
+  })
+}
+
+function normalizeHash(value: string) {
+  return decodeURIComponent(value.replace(/^#/, '').trim()).toLowerCase()
 }
 
 function labelForTab(tab: TabKey) {
@@ -323,6 +390,14 @@ function renderCopyIcon(isCopied = false) {
     : `
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
       <path d="M8 7a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v9h-2V7h-7V5Zm-3 4a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2Zm2 0v8h7v-8Z" fill="currentColor" />
+    </svg>
+  `
+}
+
+function renderAnchorIcon() {
+  return `
+    <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false">
+      <path d="M7.775 3.275a.75.75 0 0 1 0 1.06L5.56 6.55a1.75 1.75 0 0 0 2.475 2.475l1.14-1.14a.75.75 0 1 1 1.06 1.06l-1.14 1.14A3.25 3.25 0 0 1 4.5 5.49l2.215-2.215a.75.75 0 0 1 1.06 0Zm.45 9.45a.75.75 0 0 1 0-1.06l2.215-2.215A1.75 1.75 0 0 0 7.965 6.975l-1.14 1.14a.75.75 0 1 1-1.06-1.06l1.14-1.14A3.25 3.25 0 0 1 11.5 10.51l-2.215 2.215a.75.75 0 0 1-1.06 0Z" fill="currentColor" />
     </svg>
   `
 }
