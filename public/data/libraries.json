@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-28T08:13:25.133Z",
+  "generatedAt": "2026-04-29T01:53:06.544Z",
   "libraries": [
     {
       "id": "commons",
@@ -40,7 +40,7 @@
       "description": "Annotation-driven command framework for Minecraft plugins.",
       "repoUrl": "https://github.com/Despical/CommandFramework",
       "stargazersUrl": "https://github.com/Despical/CommandFramework",
-      "stars": 32,
+      "stars": 33,
       "sourceKind": "maven-central",
       "sourceLabel": "Maven Central",
       "versionLink": "https://central.sonatype.com/artifact/dev.despical/command-framework",
