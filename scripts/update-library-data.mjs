@@ -9,7 +9,7 @@ const librarySpecs = [
   {
     id: 'commons',
     name: 'Commons',
-    description: 'Shared Java and Minecraft utilities for plugin development.',
+    description: 'Shared Java and Minecraft utilities for plugin development and reusable server tooling.',
     owner: 'Despical',
     repo: 'Commons',
     sourceKind: 'maven-central',
@@ -20,6 +20,7 @@ const librarySpecs = [
     id: 'command-framework',
     name: 'CommandFramework',
     description: 'Annotation-driven command framework for Minecraft plugins.',
+    docsUrl: 'https://docs.despical.dev/command-framework/',
     owner: 'Despical',
     repo: 'CommandFramework',
     sourceKind: 'maven-central',
@@ -59,7 +60,7 @@ const librarySpecs = [
   {
     id: 'item-nbt-api',
     name: 'Item-NBT-API',
-    description: 'NBT access layer for item metadata and plugin integrations.',
+    description: 'NBT access layer for item metadata, persistence, and plugin integrations.',
     owner: 'Despical',
     repo: 'Item-NBT-API',
     sourceKind: 'jitpack',
@@ -122,6 +123,7 @@ const libraries = await Promise.all(
       id: spec.id,
       name: spec.name,
       description: spec.description,
+      docsUrl: spec.docsUrl,
       repoUrl: `https://github.com/${spec.owner}/${spec.repo}`,
       stargazersUrl: `https://github.com/${spec.owner}/${spec.repo}`,
       stars: githubData.stars,

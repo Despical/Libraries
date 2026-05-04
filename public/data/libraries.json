@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-04T01:47:39.497Z",
+  "generatedAt": "2026-05-04T16:41:14.894Z",
   "libraries": [
     {
       "id": "commons",
@@ -143,11 +143,11 @@
       "stars": 2,
       "sourceKind": "jitpack",
       "sourceLabel": "JitPack",
-      "versionLink": "https://jitpack.io/#Despical/ParticleLib/1.0.8",
+      "versionLink": "https://jitpack.io/#Despical/ParticleLib/1.0.9",
       "coordinates": {
         "groupId": "com.github.Despical",
         "artifactId": "ParticleLib",
-        "version": "1.0.8"
+        "version": "1.0.9"
       },
       "badges": [
         {
@@ -162,9 +162,9 @@
         }
       ],
       "snippets": {
-        "maven": "<repositories>\n  <repository>\n    <id>jitpack.io</id>\n    <url>https://jitpack.io</url>\n  </repository>\n</repositories>\n\n<dependency>\n  <groupId>com.github.Despical</groupId>\n  <artifactId>ParticleLib</artifactId>\n  <version>1.0.8</version>\n</dependency>",
-        "groovy": "repositories {\n    mavenCentral()\n    maven { url 'https://jitpack.io' }\n}\n\ndependencies {\n    implementation 'com.github.Despical:ParticleLib:1.0.8'\n}",
-        "kotlin": "repositories {\n    mavenCentral()\n    maven(\"https://jitpack.io\")\n}\n\ndependencies {\n    implementation(\"com.github.Despical:ParticleLib:1.0.8\")\n}"
+        "maven": "<repositories>\n  <repository>\n    <id>jitpack.io</id>\n    <url>https://jitpack.io</url>\n  </repository>\n</repositories>\n\n<dependency>\n  <groupId>com.github.Despical</groupId>\n  <artifactId>ParticleLib</artifactId>\n  <version>1.0.9</version>\n</dependency>",
+        "groovy": "repositories {\n    mavenCentral()\n    maven { url 'https://jitpack.io' }\n}\n\ndependencies {\n    implementation 'com.github.Despical:ParticleLib:1.0.9'\n}",
+        "kotlin": "repositories {\n    mavenCentral()\n    maven(\"https://jitpack.io\")\n}\n\ndependencies {\n    implementation(\"com.github.Despical:ParticleLib:1.0.9\")\n}"
       }
     },
     {
