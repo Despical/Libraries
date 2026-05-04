@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-05-04T16:31:25.016Z",
+  "generatedAt": "2026-05-04T01:47:39.497Z",
   "libraries": [
     {
       "id": "commons",
       "name": "Commons",
-      "description": "Shared Java and Minecraft utilities for plugin development.",
+      "description": "Shared Java and Minecraft utilities for plugin development and reusable server tooling.",
       "repoUrl": "https://github.com/Despical/Commons",
       "stargazersUrl": "https://github.com/Despical/Commons",
       "stars": 5,
@@ -38,6 +38,7 @@
       "id": "command-framework",
       "name": "CommandFramework",
       "description": "Annotation-driven command framework for Minecraft plugins.",
+      "docsUrl": "https://docs.despical.dev/command-framework/",
       "repoUrl": "https://github.com/Despical/CommandFramework",
       "stargazersUrl": "https://github.com/Despical/CommandFramework",
       "stars": 33,
@@ -142,11 +143,11 @@
       "stars": 2,
       "sourceKind": "jitpack",
       "sourceLabel": "JitPack",
-      "versionLink": "https://jitpack.io/#Despical/ParticleLib/1.0.9",
+      "versionLink": "https://jitpack.io/#Despical/ParticleLib/1.0.8",
       "coordinates": {
         "groupId": "com.github.Despical",
         "artifactId": "ParticleLib",
-        "version": "1.0.9"
+        "version": "1.0.8"
       },
       "badges": [
         {
@@ -161,15 +162,15 @@
         }
       ],
       "snippets": {
-        "maven": "<repositories>\n  <repository>\n    <id>jitpack.io</id>\n    <url>https://jitpack.io</url>\n  </repository>\n</repositories>\n\n<dependency>\n  <groupId>com.github.Despical</groupId>\n  <artifactId>ParticleLib</artifactId>\n  <version>1.0.9</version>\n</dependency>",
-        "groovy": "repositories {\n    mavenCentral()\n    maven { url 'https://jitpack.io' }\n}\n\ndependencies {\n    implementation 'com.github.Despical:ParticleLib:1.0.9'\n}",
-        "kotlin": "repositories {\n    mavenCentral()\n    maven(\"https://jitpack.io\")\n}\n\ndependencies {\n    implementation(\"com.github.Despical:ParticleLib:1.0.9\")\n}"
+        "maven": "<repositories>\n  <repository>\n    <id>jitpack.io</id>\n    <url>https://jitpack.io</url>\n  </repository>\n</repositories>\n\n<dependency>\n  <groupId>com.github.Despical</groupId>\n  <artifactId>ParticleLib</artifactId>\n  <version>1.0.8</version>\n</dependency>",
+        "groovy": "repositories {\n    mavenCentral()\n    maven { url 'https://jitpack.io' }\n}\n\ndependencies {\n    implementation 'com.github.Despical:ParticleLib:1.0.8'\n}",
+        "kotlin": "repositories {\n    mavenCentral()\n    maven(\"https://jitpack.io\")\n}\n\ndependencies {\n    implementation(\"com.github.Despical:ParticleLib:1.0.8\")\n}"
       }
     },
     {
       "id": "item-nbt-api",
       "name": "Item-NBT-API",
-      "description": "NBT access layer for item metadata and plugin integrations.",
+      "description": "NBT access layer for item metadata, persistence, and plugin integrations.",
       "repoUrl": "https://github.com/Despical/Item-NBT-API",
       "stargazersUrl": "https://github.com/Despical/Item-NBT-API",
       "stars": 0,
