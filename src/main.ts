@@ -38,6 +38,7 @@ const tabLabels: Record<TabKey, string> = {
 }
 
 const profileUrl = 'https://github.com/Despical'
+const repositoryUrl = 'https://github.com/Despical/Libraries'
 const profileName = 'Despical'
 const spigotUrl = 'https://www.spigotmc.org/resources/authors/despical.615094/'
 const buyMeACoffeeUrl = 'https://buymeacoffee.com/despical'
@@ -97,7 +98,7 @@ function renderDashboard(data: DashboardData) {
               <strong>${formatDate(data.generatedAt)}</strong>
             </span>
           </div>
-          <a class="icon-link" href="${profileUrl}" target="_blank" rel="noreferrer" aria-label="Open ${profileName} on GitHub">
+          <a class="icon-link" href="${repositoryUrl}" target="_blank" rel="noreferrer" aria-label="Open ${profileName} Libraries repository on GitHub">
             ${renderGithubIcon()}
           </a>
         </div>
