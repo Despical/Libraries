@@ -4,7 +4,7 @@
     {
       "id": "commons",
       "name": "Commons",
-      "description": "Shared Java and Minecraft utilities for plugin development.",
+      "description": "Shared Java and Minecraft utilities for plugin development and reusable server tooling.",
       "repoUrl": "https://github.com/Despical/Commons",
       "stargazersUrl": "https://github.com/Despical/Commons",
       "stars": 5,
@@ -38,6 +38,7 @@
       "id": "command-framework",
       "name": "CommandFramework",
       "description": "Annotation-driven command framework for Minecraft plugins.",
+      "docsUrl": "https://docs.despical.dev/command-framework/",
       "repoUrl": "https://github.com/Despical/CommandFramework",
       "stargazersUrl": "https://github.com/Despical/CommandFramework",
       "stars": 32,
@@ -169,7 +170,7 @@
     {
       "id": "item-nbt-api",
       "name": "Item-NBT-API",
-      "description": "NBT access layer for item metadata and plugin integrations.",
+      "description": "NBT access layer for item metadata, persistence, and plugin integrations.",
       "repoUrl": "https://github.com/Despical/Item-NBT-API",
       "stargazersUrl": "https://github.com/Despical/Item-NBT-API",
       "stars": 0,

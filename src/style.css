@@ -387,11 +387,21 @@ h3 {
   align-items: start;
 }
 
+.card-copy {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+
 .card-title-row {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 0;
   max-width: 100%;
+  padding-left: 0;
+  transition: padding-left 180ms ease;
 }
 
 .card-title-row h3 {
@@ -403,17 +413,19 @@ h3 {
 }
 
 .card-anchor {
+  position: absolute;
+  top: 50%;
+  left: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 28px;
   height: 28px;
-  margin-left: -4px;
   border-radius: 999px;
   color: var(--muted);
   text-decoration: none;
   opacity: 0;
-  transform: translateX(-6px);
+  transform: translate(-6px, -50%);
   transition: opacity 160ms ease, transform 160ms ease, color 160ms ease, background-color 160ms ease;
 }
 
@@ -426,7 +438,13 @@ h3 {
 .library-card:focus-within .card-anchor,
 .library-card.is-targeted .card-anchor {
   opacity: 1;
-  transform: translateX(0);
+  transform: translate(0, -50%);
+}
+
+.library-card:hover .card-title-row,
+.library-card:focus-within .card-title-row,
+.library-card.is-targeted .card-title-row {
+  padding-left: 34px;
 }
 
 .card-anchor:hover,
@@ -572,23 +590,12 @@ h3 {
   margin: 0;
   overflow-x: auto;
   height: 100%;
-  padding: 56px 18px 18px;
+  padding: 0;
   border-radius: 22px;
   background: linear-gradient(180deg, #101318 0%, #0c1014 100%);
   color: #f4f7fb;
   font-size: 0.92rem;
   border: 1px solid rgba(255, 255, 255, 0.07);
-}
-
-.snippet-box::before {
-  content: '';
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 46px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 22px 22px 0 0;
-  pointer-events: none;
 }
 
 .snippet-box-maven-central {
@@ -600,7 +607,23 @@ h3 {
 }
 
 .snippet-panel code {
+  position: relative;
+  display: block;
+  width: max-content;
+  min-width: 100%;
+  padding: 56px 18px 18px;
   white-space: pre;
+}
+
+.snippet-panel code::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 46px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 22px 22px 0 0;
+  pointer-events: none;
 }
 
 .error-copy {
@@ -700,8 +723,11 @@ h3 {
   }
 
   .snippet-box {
-    padding: 52px 14px 14px;
     font-size: 0.86rem;
+  }
+
+  .snippet-panel code {
+    padding: 52px 14px 14px;
   }
 
   .site-footer {

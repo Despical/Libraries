@@ -12,6 +12,7 @@ interface Coordinates {
 interface LibraryEntry {
   coordinates: Coordinates
   description: string
+  docsUrl?: string
   id: string
   name: string
   repoUrl: string
@@ -123,6 +124,14 @@ function renderDashboard(data: DashboardData) {
 }
 
 function renderCard(library: LibraryEntry) {
+  const docsLink = library.docsUrl
+    ? `
+          <a class="icon-link icon-link-subtle" href="${library.docsUrl}" target="_blank" rel="noreferrer" aria-label="Open ${library.name} documentation">
+            ${renderDocsIcon()}
+          </a>
+        `
+    : ''
+
   const tabButtons = (Object.entries(tabLabels) as Array<[TabKey, string]>)
     .map(
       ([key, label], index) => `
@@ -178,6 +187,7 @@ function renderCard(library: LibraryEntry) {
             ${renderStarIcon()}
             <span>${formatStarCount(library.stars)}</span>
           </a>
+          ${docsLink}
           <a class="icon-link icon-link-subtle" href="${library.repoUrl}" target="_blank" rel="noreferrer" aria-label="Open ${library.name} repository">
             ${renderGithubIcon()}
           </a>
@@ -185,7 +195,7 @@ function renderCard(library: LibraryEntry) {
       </div>
 
       <div class="card-header">
-        <div>
+        <div class="card-copy">
           <div class="card-title-row">
             <a class="card-anchor" href="#${library.id}" aria-label="Link to ${library.name}">
               ${renderAnchorIcon()}
@@ -376,6 +386,14 @@ function renderStarIcon() {
   return `
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
       <path d="m12 3.7 2.43 4.93 5.44.79-3.94 3.84.93 5.42L12 16.12 7.14 18.68l.93-5.42L4.13 9.42l5.44-.79Z" fill="currentColor" />
+    </svg>
+  `
+}
+
+function renderDocsIcon() {
+  return `
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M6 5.5A1.5 1.5 0 0 1 7.5 4h9A1.5 1.5 0 0 1 18 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 6 18.5Zm2.5 2.25a.75.75 0 0 0 0 1.5h7a.75.75 0 0 0 0-1.5Zm0 3.5a.75.75 0 0 0 0 1.5h7a.75.75 0 0 0 0-1.5Zm0 3.5a.75.75 0 0 0 0 1.5h5.25a.75.75 0 0 0 0-1.5Z" fill="currentColor" />
     </svg>
   `
 }
