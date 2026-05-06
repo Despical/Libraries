@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-05T01:48:44.876Z",
+  "generatedAt": "2026-05-06T01:47:19.322Z",
   "libraries": [
     {
       "id": "commons",
@@ -14,7 +14,7 @@
       "coordinates": {
         "groupId": "dev.despical",
         "artifactId": "commons",
-        "version": "2.1.0"
+        "version": "2.1.1"
       },
       "badges": [
         {
@@ -29,9 +29,9 @@
         }
       ],
       "snippets": {
-        "maven": "<dependency>\n  <groupId>dev.despical</groupId>\n  <artifactId>commons</artifactId>\n  <version>2.1.0</version>\n</dependency>",
-        "groovy": "dependencies {\n    implementation 'dev.despical:commons:2.1.0'\n}",
-        "kotlin": "dependencies {\n    implementation(\"dev.despical:commons:2.1.0\")\n}"
+        "maven": "<dependency>\n  <groupId>dev.despical</groupId>\n  <artifactId>commons</artifactId>\n  <version>2.1.1</version>\n</dependency>",
+        "groovy": "dependencies {\n    implementation 'dev.despical:commons:2.1.1'\n}",
+        "kotlin": "dependencies {\n    implementation(\"dev.despical:commons:2.1.1\")\n}"
       }
     },
     {
@@ -114,7 +114,7 @@
       "coordinates": {
         "groupId": "dev.despical",
         "artifactId": "file-items",
-        "version": "1.2.4"
+        "version": "1.2.5"
       },
       "badges": [
         {
@@ -129,9 +129,9 @@
         }
       ],
       "snippets": {
-        "maven": "<dependency>\n  <groupId>dev.despical</groupId>\n  <artifactId>file-items</artifactId>\n  <version>1.2.4</version>\n</dependency>",
-        "groovy": "dependencies {\n    implementation 'dev.despical:file-items:1.2.4'\n}",
-        "kotlin": "dependencies {\n    implementation(\"dev.despical:file-items:1.2.4\")\n}"
+        "maven": "<dependency>\n  <groupId>dev.despical</groupId>\n  <artifactId>file-items</artifactId>\n  <version>1.2.5</version>\n</dependency>",
+        "groovy": "dependencies {\n    implementation 'dev.despical:file-items:1.2.5'\n}",
+        "kotlin": "dependencies {\n    implementation(\"dev.despical:file-items:1.2.5\")\n}"
       }
     },
     {
