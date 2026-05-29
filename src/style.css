@@ -306,19 +306,24 @@ h3 {
   align-items: center;
   justify-content: end;
   flex-wrap: wrap;
-  gap: 18px;
+  gap: 10px;
 }
 
-.footer-links a {
+.footer-link-icon {
   color: var(--muted);
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 160ms ease, transform 160ms ease;
+  background: rgba(255, 255, 255, 0.03);
 }
 
-.footer-links a:hover {
-  transform: translateY(-1px);
+.footer-link-icon:hover,
+.footer-link-icon:focus-visible {
   color: var(--ink);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.footer-link-icon svg {
+  width: 18px;
+  height: 18px;
 }
 
 .library-card {
@@ -754,19 +759,19 @@ h3 {
   .footer-links {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 10px;
   }
 
-  .footer-links a {
+  .footer-link-icon {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    min-width: 0;
     min-height: 42px;
     padding: 10px 12px;
     border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: rgba(255, 255, 255, 0.04);
   }
 
   .copy-button {
@@ -796,6 +801,6 @@ h3 {
   }
 
   .footer-links {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

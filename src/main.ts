@@ -43,6 +43,7 @@ const profileName = 'Despical'
 const spigotUrl = 'https://www.spigotmc.org/resources/authors/despical.615094/'
 const buyMeACoffeeUrl = 'https://buymeacoffee.com/despical'
 const patreonUrl = 'https://patreon.com/despical'
+const builtByBitUrl = 'https://builtbybit.com/creators/despical.257098/'
 
 const appRootElement = document.querySelector<HTMLDivElement>('#app')
 
@@ -81,6 +82,39 @@ async function initialize() {
 }
 
 function renderDashboard(data: DashboardData) {
+  const footerLinks = [
+    {
+      ariaLabel: `Open ${profileName} GitHub profile`,
+      href: profileUrl,
+      icon: renderGithubIcon(),
+      title: 'GitHub',
+    },
+    {
+      ariaLabel: `Open ${profileName} Spigot profile`,
+      href: spigotUrl,
+      icon: renderSpigotIcon(),
+      title: 'Spigot',
+    },
+    {
+      ariaLabel: `Open ${profileName} Buy Me a Coffee profile`,
+      href: buyMeACoffeeUrl,
+      icon: renderBuyMeACoffeeIcon(),
+      title: 'BuyMeACoffee',
+    },
+    {
+      ariaLabel: `Open ${profileName} Patreon profile`,
+      href: patreonUrl,
+      icon: renderPatreonIcon(),
+      title: 'Patreon',
+    },
+    {
+      ariaLabel: `Open ${profileName} BuiltByBit profile`,
+      href: builtByBitUrl,
+      icon: renderBuiltByBitIcon(),
+      title: 'BuiltByBit',
+    },
+  ]
+
   appRoot.innerHTML = `
     <main class="shell">
       <section class="topbar">
@@ -113,10 +147,22 @@ function renderDashboard(data: DashboardData) {
         <div class="footer-meta">
           <p class="footer-copy">&copy; 2026 Berke &quot;Despical&quot; Akçen</p>
           <nav class="footer-links" aria-label="Footer links">
-            <a href="${spigotUrl}" target="_blank" rel="noreferrer">Spigot</a>
-            <a href="${profileUrl}" target="_blank" rel="noreferrer">GitHub</a>
-            <a href="${buyMeACoffeeUrl}" target="_blank" rel="noreferrer">BuyMeACoffee</a>
-            <a href="${patreonUrl}" target="_blank" rel="noreferrer">Patreon</a>
+            ${footerLinks
+              .map(
+                (link) => `
+                  <a
+                    class="icon-link footer-link-icon"
+                    href="${link.href}"
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label="${link.ariaLabel}"
+                    title="${link.title}"
+                  >
+                    ${link.icon}
+                  </a>
+                `,
+              )
+              .join('')}
           </nav>
         </div>
       </footer>
@@ -379,6 +425,49 @@ function renderGithubIcon() {
   return `
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
       <path d="M12 2C6.48 2 2 6.58 2 12.23c0 4.52 2.87 8.35 6.84 9.7.5.1.66-.22.66-.49 0-.24-.01-1.04-.01-1.89-2.78.62-3.37-1.21-3.37-1.21-.46-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.9 1.57 2.35 1.12 2.92.86.09-.67.35-1.12.63-1.38-2.22-.26-4.55-1.14-4.55-5.09 0-1.13.39-2.05 1.03-2.77-.1-.26-.45-1.31.1-2.74 0 0 .84-.28 2.75 1.06A9.3 9.3 0 0 1 12 6.85c.85 0 1.7.12 2.5.35 1.9-1.34 2.74-1.06 2.74-1.06.55 1.43.21 2.48.1 2.74.64.72 1.03 1.64 1.03 2.77 0 3.96-2.34 4.82-4.57 5.08.36.32.68.95.68 1.92 0 1.39-.01 2.5-.01 2.84 0 .27.17.59.67.49A10.25 10.25 0 0 0 22 12.23C22 6.58 17.52 2 12 2Z" fill="currentColor" />
+    </svg>
+  `
+}
+
+function renderSpigotIcon() {
+  return `
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M6.5 6.5h11v11h-11Z" fill="none" stroke="currentColor" stroke-width="1.5" />
+      <path d="M9 9.1c0-1 1.04-1.6 2.12-1.6 1.19 0 2.24.56 2.24 1.55 0 1.02-.89 1.42-1.86 1.76-.96.34-1.88.61-1.88 1.57 0 .95.88 1.52 2.1 1.52 1.01 0 1.85-.29 2.5-.75" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" />
+      <path d="M14.8 15.9 16.5 17.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8" />
+    </svg>
+  `
+}
+
+function renderBuyMeACoffeeIcon() {
+  return `
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M7 9.25h8.25a1.75 1.75 0 0 1 1.75 1.75v2.25A4.75 4.75 0 0 1 12.25 18H11.5A4.5 4.5 0 0 1 7 13.5Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+      <path d="M15.25 10.25h1A2.25 2.25 0 0 1 18.5 12.5v.25A2.25 2.25 0 0 1 16.25 15h-.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+      <path d="M10.9 6.8c.34-.58 1.22-1.3 2.07-.56.81.71.38 1.66-.25 2.36-.54.61-.98 1.14-1 1.9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" />
+      <path d="M8 18.75h8.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.7" />
+    </svg>
+  `
+}
+
+function renderPatreonIcon() {
+  return `
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <circle cx="15.25" cy="8.75" r="4.75" fill="currentColor" />
+      <path d="M6 4.75v14.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.6" />
+    </svg>
+  `
+}
+
+function renderBuiltByBitIcon() {
+  return `
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M12 4.5 6.5 7.6 12 10.7l5.5-3.1Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.6" />
+      <path d="M6.5 11.3 12 14.4l5.5-3.1" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" />
+      <path d="M6.5 15 12 18.1l5.5-3.1" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" />
+      <path d="M6.5 7.6V15" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.6" />
+      <path d="M17.5 7.6V15" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.6" />
+      <path d="M12 10.7v7.4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.6" />
     </svg>
   `
 }
