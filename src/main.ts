@@ -92,13 +92,13 @@ function renderDashboard(data: DashboardData) {
     {
       ariaLabel: `Open ${profileName} Spigot profile`,
       href: spigotUrl,
-      icon: renderBrandIcon('./icons/spigot.svg', 'Spigot'),
-      title: 'Spigot',
+      icon: renderBrandIcon('./icons/spigot.svg', 'SpigotMC'),
+      title: 'SpigotMC',
     },
     {
       ariaLabel: `Open ${profileName} BuiltByBit profile`,
       href: builtByBitUrl,
-      icon: renderBrandIcon('./icons/builtbybit.png', 'BuiltByBit'),
+      icon: renderBrandIcon('./icons/builtbybit.svg', 'BuiltByBit'),
       title: 'BuiltByBit',
     },
     {
