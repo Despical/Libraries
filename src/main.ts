@@ -92,26 +92,26 @@ function renderDashboard(data: DashboardData) {
     {
       ariaLabel: `Open ${profileName} Spigot profile`,
       href: spigotUrl,
-      icon: renderSpigotIcon(),
+      icon: renderBrandIcon('./icons/spigot.svg', 'Spigot'),
       title: 'Spigot',
+    },
+    {
+      ariaLabel: `Open ${profileName} BuiltByBit profile`,
+      href: builtByBitUrl,
+      icon: renderBrandIcon('./icons/builtbybit.png', 'BuiltByBit'),
+      title: 'BuiltByBit',
     },
     {
       ariaLabel: `Open ${profileName} Buy Me a Coffee profile`,
       href: buyMeACoffeeUrl,
-      icon: renderBuyMeACoffeeIcon(),
+      icon: renderBrandIcon('./icons/buymeacoffee.svg', 'BuyMeACoffee'),
       title: 'BuyMeACoffee',
     },
     {
       ariaLabel: `Open ${profileName} Patreon profile`,
       href: patreonUrl,
-      icon: renderPatreonIcon(),
+      icon: renderBrandIcon('./icons/patreon.svg', 'Patreon'),
       title: 'Patreon',
-    },
-    {
-      ariaLabel: `Open ${profileName} BuiltByBit profile`,
-      href: builtByBitUrl,
-      icon: renderBuiltByBitIcon(),
-      title: 'BuiltByBit',
     },
   ]
 
@@ -429,46 +429,9 @@ function renderGithubIcon() {
   `
 }
 
-function renderSpigotIcon() {
+function renderBrandIcon(src: string, title: string) {
   return `
-    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-      <path d="M6.5 6.5h11v11h-11Z" fill="none" stroke="currentColor" stroke-width="1.5" />
-      <path d="M9 9.1c0-1 1.04-1.6 2.12-1.6 1.19 0 2.24.56 2.24 1.55 0 1.02-.89 1.42-1.86 1.76-.96.34-1.88.61-1.88 1.57 0 .95.88 1.52 2.1 1.52 1.01 0 1.85-.29 2.5-.75" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" />
-      <path d="M14.8 15.9 16.5 17.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.8" />
-    </svg>
-  `
-}
-
-function renderBuyMeACoffeeIcon() {
-  return `
-    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-      <path d="M7 9.25h8.25a1.75 1.75 0 0 1 1.75 1.75v2.25A4.75 4.75 0 0 1 12.25 18H11.5A4.5 4.5 0 0 1 7 13.5Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
-      <path d="M15.25 10.25h1A2.25 2.25 0 0 1 18.5 12.5v.25A2.25 2.25 0 0 1 16.25 15h-.5" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
-      <path d="M10.9 6.8c.34-.58 1.22-1.3 2.07-.56.81.71.38 1.66-.25 2.36-.54.61-.98 1.14-1 1.9" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" />
-      <path d="M8 18.75h8.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.7" />
-    </svg>
-  `
-}
-
-function renderPatreonIcon() {
-  return `
-    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-      <circle cx="15.25" cy="8.75" r="4.75" fill="currentColor" />
-      <path d="M6 4.75v14.5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.6" />
-    </svg>
-  `
-}
-
-function renderBuiltByBitIcon() {
-  return `
-    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-      <path d="M12 4.5 6.5 7.6 12 10.7l5.5-3.1Z" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.6" />
-      <path d="M6.5 11.3 12 14.4l5.5-3.1" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" />
-      <path d="M6.5 15 12 18.1l5.5-3.1" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" />
-      <path d="M6.5 7.6V15" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.6" />
-      <path d="M17.5 7.6V15" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.6" />
-      <path d="M12 10.7v7.4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.6" />
-    </svg>
+    <img class="brand-icon" src="${src}" alt="" aria-hidden="true" data-brand-icon="${title}" />
   `
 }
 

@@ -326,6 +326,13 @@ h3 {
   height: 18px;
 }
 
+.brand-icon {
+  display: block;
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
 .library-card {
   position: relative;
   scroll-margin-top: 28px;
