@@ -8,7 +8,8 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "update-data": "node ./scripts/update-library-data.mjs",
-    "build:pages": "npm run update-data && npm run build"
+    "generate-static": "node ./scripts/generate-static-html.mjs",
+    "build:pages": "npm run update-data && npm run generate-static && npm run build"
   },
   "devDependencies": {
     "typescript": "~6.0.2",
