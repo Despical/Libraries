@@ -60,6 +60,45 @@ appRoot.innerHTML = `
   </main>
 `
 
+
+// Inject scroll-to-top button
+const scrollBtn = document.createElement('button')
+scrollBtn.className = 'scroll-to-top'
+scrollBtn.type = 'button'
+scrollBtn.setAttribute('aria-label', 'Scroll to top')
+scrollBtn.innerHTML = `
+  <svg viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false">
+    <path d="M16 7.5c.32 0 .63.13.86.36l8.5 8.5a1.25 1.25 0 1 1-1.77 1.77l-6.09-6.1V24a1.25 1.25 0 1 1-2.5 0V12.03l-6.09 6.1a1.25 1.25 0 1 1-1.77-1.77l8.5-8.5A1.25 1.25 0 0 1 16 7.5Z" fill="currentColor"/>
+  </svg>
+`
+scrollBtn.style.display = 'none'
+document.body.appendChild(scrollBtn)
+
+let scrollBtnVisible = false
+let scrollBtnFadeTimeout: number | undefined
+
+window.addEventListener('scroll', () => {
+  const show = window.scrollY > window.innerHeight * 1.2
+  if (show && !scrollBtnVisible) {
+    scrollBtnVisible = true
+    scrollBtn.style.display = 'block'
+    scrollBtn.classList.add('fade-in')
+    scrollBtn.classList.remove('fade-out')
+  } else if (!show && scrollBtnVisible) {
+    scrollBtnVisible = false
+    scrollBtn.classList.remove('fade-in')
+    scrollBtn.classList.add('fade-out')
+    if (scrollBtnFadeTimeout) window.clearTimeout(scrollBtnFadeTimeout)
+    scrollBtnFadeTimeout = window.setTimeout(() => {
+      scrollBtn.style.display = 'none'
+    }, 350)
+  }
+})
+
+scrollBtn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+})
+
 void initialize()
 
 type ScrollMode = ScrollBehavior | false
@@ -75,79 +114,10 @@ async function initialize() {
     const data = (await response.json()) as DashboardData
     renderDashboard(data)
     bindInteractions()
-    initBackToTop()
     syncHashSelection(window.location.hash ? 'auto' : false)
   } catch (error) {
     renderError(error instanceof Error ? error.message : 'Unexpected error.')
   }
-}
-
-// Back-to-top control
-function renderBackToTopIcon() {
-  return `
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M12 5.5v13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
-      <path d="M6.5 10.5L12 5.5l5.5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-  `
-}
-
-function initBackToTop() {
-  // Don't attach twice
-  if (document.querySelector('.back-to-top')) return
-
-  const btn = document.createElement('button')
-  btn.type = 'button'
-  btn.className = 'back-to-top'
-  btn.setAttribute('aria-label', 'Scroll to top')
-  btn.innerHTML = renderBackToTopIcon()
-
-  document.body.appendChild(btn)
-
-  const showThreshold = Math.max(window.innerHeight * 0.9, 560)
-  let lastKnownScroll = window.scrollY
-
-  function updateVisibility() {
-    lastKnownScroll = window.scrollY || window.pageYOffset
-    if (lastKnownScroll > showThreshold) {
-      btn.classList.add('show')
-      btn.classList.remove('hide')
-    } else {
-      btn.classList.remove('show')
-      btn.classList.add('hide')
-    }
-  }
-
-  // Throttle scroll handler
-  let ticking = false
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        updateVisibility()
-        ticking = false
-      })
-      ticking = true
-    }
-  }, { passive: true })
-
-  // Click -> smooth scroll to top and hide
-  btn.addEventListener('click', () => {
-    btn.classList.add('hide')
-    btn.classList.remove('show')
-    // smooth scroll
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  })
-
-  // Hide when at top (in case of manual scroll or after animation)
-  window.addEventListener('scroll', () => {
-    if ((window.scrollY || window.pageYOffset) <= 8) {
-      btn.classList.remove('show')
-      btn.classList.add('hide')
-    }
-  }, { passive: true })
-
-  // initial visibility
-  updateVisibility()
 }
 
 function renderDashboard(data: DashboardData) {
