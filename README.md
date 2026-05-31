@@ -40,13 +40,6 @@ npm run build:pages
 - `refresh-data.yml` runs every 6 hours and updates `public/data/libraries.json`.
 - `deploy.yml` runs on push or manual dispatch, refreshes data again, builds the site, and deploys it to GitHub Pages.
 
-## SEO
-
-- Library cards are statically pre-rendered into `index.html` at build time via `scripts/generate-static-html.mjs`
-- JSON-LD structured data (`WebSite` + `ItemList`) is injected into every build
-- `public/sitemap.xml` and `public/robots.txt` are included in the deployed output
-- Canonical URL, Open Graph, and Twitter Card meta tags are set in `index.html`
-
 ## Updating libraries
 
 Edit `scripts/update-library-data.mjs` when you want to add, remove, or change library entries. That script controls source selection, coordinates, descriptions, badges, stars, and generated snippets.
