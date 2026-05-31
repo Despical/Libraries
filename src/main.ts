@@ -75,10 +75,79 @@ async function initialize() {
     const data = (await response.json()) as DashboardData
     renderDashboard(data)
     bindInteractions()
+    initBackToTop()
     syncHashSelection(window.location.hash ? 'auto' : false)
   } catch (error) {
     renderError(error instanceof Error ? error.message : 'Unexpected error.')
   }
+}
+
+// Back-to-top control
+function renderBackToTopIcon() {
+  return `
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M12 5.5v13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.9"/>
+      <path d="M6.5 10.5L12 5.5l5.5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  `
+}
+
+function initBackToTop() {
+  // Don't attach twice
+  if (document.querySelector('.back-to-top')) return
+
+  const btn = document.createElement('button')
+  btn.type = 'button'
+  btn.className = 'back-to-top'
+  btn.setAttribute('aria-label', 'Scroll to top')
+  btn.innerHTML = renderBackToTopIcon()
+
+  document.body.appendChild(btn)
+
+  const showThreshold = Math.max(window.innerHeight * 0.9, 560)
+  let lastKnownScroll = window.scrollY
+
+  function updateVisibility() {
+    lastKnownScroll = window.scrollY || window.pageYOffset
+    if (lastKnownScroll > showThreshold) {
+      btn.classList.add('show')
+      btn.classList.remove('hide')
+    } else {
+      btn.classList.remove('show')
+      btn.classList.add('hide')
+    }
+  }
+
+  // Throttle scroll handler
+  let ticking = false
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        updateVisibility()
+        ticking = false
+      })
+      ticking = true
+    }
+  }, { passive: true })
+
+  // Click -> smooth scroll to top and hide
+  btn.addEventListener('click', () => {
+    btn.classList.add('hide')
+    btn.classList.remove('show')
+    // smooth scroll
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  })
+
+  // Hide when at top (in case of manual scroll or after animation)
+  window.addEventListener('scroll', () => {
+    if ((window.scrollY || window.pageYOffset) <= 8) {
+      btn.classList.remove('show')
+      btn.classList.add('hide')
+    }
+  }, { passive: true })
+
+  // initial visibility
+  updateVisibility()
 }
 
 function renderDashboard(data: DashboardData) {
