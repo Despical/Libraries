@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-05T02:13:00.705Z",
+  "generatedAt": "2026-06-06T02:01:36.415Z",
   "libraries": [
     {
       "id": "commons",
@@ -107,7 +107,7 @@
       "description": "YAML-driven item loading utilities for plugin content pipelines.",
       "repoUrl": "https://github.com/Despical/FileItems",
       "stargazersUrl": "https://github.com/Despical/FileItems",
-      "stars": 1,
+      "stars": 2,
       "sourceKind": "maven-central",
       "sourceLabel": "Maven Central",
       "versionLink": "https://central.sonatype.com/artifact/dev.despical/file-items",
