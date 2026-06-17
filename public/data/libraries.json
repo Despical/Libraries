@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-16T00:36:19.412Z",
+  "generatedAt": "2026-06-17T00:30:59.411Z",
   "libraries": [
     {
       "id": "commons",
@@ -14,7 +14,7 @@
       "coordinates": {
         "groupId": "dev.despical",
         "artifactId": "commons",
-        "version": "2.1.1"
+        "version": "2.1.2"
       },
       "badges": [
         {
@@ -29,9 +29,9 @@
         }
       ],
       "snippets": {
-        "maven": "<dependency>\n  <groupId>dev.despical</groupId>\n  <artifactId>commons</artifactId>\n  <version>2.1.1</version>\n</dependency>",
-        "groovy": "dependencies {\n    implementation 'dev.despical:commons:2.1.1'\n}",
-        "kotlin": "dependencies {\n    implementation(\"dev.despical:commons:2.1.1\")\n}"
+        "maven": "<dependency>\n  <groupId>dev.despical</groupId>\n  <artifactId>commons</artifactId>\n  <version>2.1.2</version>\n</dependency>",
+        "groovy": "dependencies {\n    implementation 'dev.despical:commons:2.1.2'\n}",
+        "kotlin": "dependencies {\n    implementation(\"dev.despical:commons:2.1.2\")\n}"
       }
     },
     {
