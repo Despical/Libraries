@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-24T00:23:09.776Z",
+  "generatedAt": "2026-06-25T00:27:47.131Z",
   "libraries": [
     {
       "id": "commons",
@@ -48,7 +48,7 @@
       "coordinates": {
         "groupId": "dev.despical",
         "artifactId": "command-framework",
-        "version": "1.6.3"
+        "version": "1.6.4"
       },
       "badges": [
         {
@@ -63,9 +63,9 @@
         }
       ],
       "snippets": {
-        "maven": "<dependency>\n  <groupId>dev.despical</groupId>\n  <artifactId>command-framework</artifactId>\n  <version>1.6.3</version>\n</dependency>",
-        "groovy": "dependencies {\n    implementation 'dev.despical:command-framework:1.6.3'\n}",
-        "kotlin": "dependencies {\n    implementation(\"dev.despical:command-framework:1.6.3\")\n}"
+        "maven": "<dependency>\n  <groupId>dev.despical</groupId>\n  <artifactId>command-framework</artifactId>\n  <version>1.6.4</version>\n</dependency>",
+        "groovy": "dependencies {\n    implementation 'dev.despical:command-framework:1.6.4'\n}",
+        "kotlin": "dependencies {\n    implementation(\"dev.despical:command-framework:1.6.4\")\n}"
       }
     },
     {
