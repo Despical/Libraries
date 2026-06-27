@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-26T00:29:01.900Z",
+  "generatedAt": "2026-06-27T00:26:57.424Z",
   "libraries": [
     {
       "id": "commons",
@@ -41,14 +41,14 @@
       "docsUrl": "https://docs.despical.dev/command-framework/",
       "repoUrl": "https://github.com/Despical/CommandFramework",
       "stargazersUrl": "https://github.com/Despical/CommandFramework",
-      "stars": 34,
+      "stars": 35,
       "sourceKind": "maven-central",
       "sourceLabel": "Maven Central",
       "versionLink": "https://central.sonatype.com/artifact/dev.despical/command-framework",
       "coordinates": {
         "groupId": "dev.despical",
         "artifactId": "command-framework",
-        "version": "1.6.4"
+        "version": "1.6.5"
       },
       "badges": [
         {
@@ -63,9 +63,9 @@
         }
       ],
       "snippets": {
-        "maven": "<dependency>\n  <groupId>dev.despical</groupId>\n  <artifactId>command-framework</artifactId>\n  <version>1.6.4</version>\n</dependency>",
-        "groovy": "dependencies {\n    implementation 'dev.despical:command-framework:1.6.4'\n}",
-        "kotlin": "dependencies {\n    implementation(\"dev.despical:command-framework:1.6.4\")\n}"
+        "maven": "<dependency>\n  <groupId>dev.despical</groupId>\n  <artifactId>command-framework</artifactId>\n  <version>1.6.5</version>\n</dependency>",
+        "groovy": "dependencies {\n    implementation 'dev.despical:command-framework:1.6.5'\n}",
+        "kotlin": "dependencies {\n    implementation(\"dev.despical:command-framework:1.6.5\")\n}"
       }
     },
     {
