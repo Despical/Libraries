@@ -67,8 +67,9 @@ scrollBtn.className = 'scroll-to-top'
 scrollBtn.type = 'button'
 scrollBtn.setAttribute('aria-label', 'Scroll to top')
 scrollBtn.innerHTML = `
-  <svg viewBox="0 0 32 32" width="32" height="32" aria-hidden="true" focusable="false">
-    <path d="M16 7.5c.32 0 .63.13.86.36l8.5 8.5a1.25 1.25 0 1 1-1.77 1.77l-6.09-6.1V24a1.25 1.25 0 1 1-2.5 0V12.03l-6.09 6.1a1.25 1.25 0 1 1-1.77-1.77l8.5-8.5A1.25 1.25 0 0 1 16 7.5Z" fill="currentColor"/>
+  <svg viewBox="0 0 32 32" width="24" height="24" aria-hidden="true" focusable="false">
+    <path class="scroll-arrow-stem" d="M16 24V8.5" />
+    <path class="scroll-arrow-head" d="M10.75 13.75 16 8.5l5.25 5.25" />
   </svg>
 `
 scrollBtn.style.display = 'none'
@@ -81,7 +82,7 @@ window.addEventListener('scroll', () => {
   const show = window.scrollY > window.innerHeight * 1.2
   if (show && !scrollBtnVisible) {
     scrollBtnVisible = true
-    scrollBtn.style.display = 'block'
+    scrollBtn.style.display = 'flex'
     scrollBtn.classList.add('fade-in')
     scrollBtn.classList.remove('fade-out')
   } else if (!show && scrollBtnVisible) {
