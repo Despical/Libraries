@@ -842,7 +842,7 @@ h3 {
   .footer-links {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
   }
 
@@ -855,6 +855,10 @@ h3 {
     min-height: 42px;
     padding: 10px 12px;
     border-radius: 999px;
+  }
+
+  .footer-link-icon:first-child {
+    grid-column: 1 / -1;
   }
 
   .copy-button {
@@ -883,7 +887,4 @@ h3 {
     font-size: 0.8rem;
   }
 
-  .footer-links {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 }
