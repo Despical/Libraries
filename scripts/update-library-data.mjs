@@ -125,7 +125,7 @@ const libraries = await Promise.all(
       description: spec.description,
       docsUrl: spec.docsUrl,
       repoUrl: `https://github.com/${spec.owner}/${spec.repo}`,
-      stargazersUrl: `https://github.com/${spec.owner}/${spec.repo}`,
+      stargazersUrl: `https://github.com/${spec.owner}/${spec.repo}/stargazers`,
       stars: githubData.stars,
       sourceKind: spec.sourceKind,
       sourceLabel: sourceData.sourceLabel,
