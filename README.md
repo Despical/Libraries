@@ -56,6 +56,27 @@ Edit `scripts/update-library-data.mjs` when you want to add, remove, or change l
 
 ---
 
+## Security
+
+We prioritize user privacy and application integrity. Please do not open public issues for discovered vulnerabilities.
+
+Read our [SECURITY.md](SECURITY.md) for responsible disclosure reporting.
+
+---
+
+## Contributing
+
+We welcome Pull Requests from the community. To help us maintain clean project history and formatting, please follow these guidelines:
+
+* **No tabs:** Use spaces exclusively for indentation.
+* **Style consistency:** Respect the established code architecture and style templates.
+* **Version control cleanliness:** Do not increment project version numbers in example configurations within your PR.
+* **Minimal diffs:** Disable automated reformat-on-save settings that affect untouched files.
+
+Learn more via our formal [Contribution Guidelines](CONTRIBUTING.md).
+
+---
+
 ## License
 
 This project is licensed under the [GPL-3.0 License](http://www.gnu.org/licenses/gpl-3.0.html).
