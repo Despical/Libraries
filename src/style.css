@@ -149,7 +149,7 @@ code {
 .shell {
     width: min(1040px, 100%);
     margin: 0 auto;
-    padding: 22px 36px 56px;
+    padding: 22px 36px 14px;
 }
 
 .loading-shell {
@@ -912,7 +912,7 @@ h3 {
 
 @media (max-width: 420px) {
     .shell {
-        padding: 16px 12px 36px;
+        padding: 16px 12px 14px;
     }
 
     .library-card {
