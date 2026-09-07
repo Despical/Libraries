@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-06T01:43:38.957Z",
+  "generatedAt": "2026-09-07T01:40:58.390Z",
   "libraries": [
     {
       "id": "commons",
@@ -41,7 +41,7 @@
       "docsUrl": "https://docs.despical.dev/command-framework/",
       "repoUrl": "https://github.com/Despical/CommandFramework",
       "stargazersUrl": "https://github.com/Despical/CommandFramework/stargazers",
-      "stars": 35,
+      "stars": 34,
       "sourceKind": "maven-central",
       "sourceLabel": "Maven Central",
       "versionLink": "https://central.sonatype.com/artifact/dev.despical/command-framework",
