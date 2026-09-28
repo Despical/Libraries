@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-27T02:18:51.344Z",
+  "generatedAt": "2026-09-28T02:22:58.403Z",
   "libraries": [
     {
       "id": "commons",
@@ -74,7 +74,7 @@
       "description": "GUI and inventory composition framework for server-side menus.",
       "repoUrl": "https://github.com/Despical/InventoryFramework",
       "stargazersUrl": "https://github.com/Despical/InventoryFramework/stargazers",
-      "stars": 8,
+      "stars": 9,
       "sourceKind": "maven-central",
       "sourceLabel": "Maven Central",
       "versionLink": "https://central.sonatype.com/artifact/dev.despical/inventory-framework",
