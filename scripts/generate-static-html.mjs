@@ -1,5 +1,5 @@
 /**
- * Keeps index.html lean for deployment while still updating the JSON-LD block.
+ * Renders the library dashboard and JSON-LD into the initial HTML response.
  *
  * Run before `vite build`:
  *   node ./scripts/generate-static-html.mjs
@@ -10,6 +10,7 @@
 import { readFile, writeFile } from 'node:fs/promises'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import ts from 'typescript'
 
 const rootDir = dirname(fileURLToPath(import.meta.url))
 const dataFile = resolve(rootDir, '../public/data/libraries.json')
@@ -60,23 +61,24 @@ const jsonLd = {
   ],
 }
 
-const noscriptContent = `<noscript>
-        <main class="shell loading-shell">
-          <p class="eyebrow">JavaScript required</p>
-          <h1>This page needs JavaScript enabled.</h1>
-        </main>
-      </noscript>`
-
+// Use the same pure renderer as the browser so crawlers and visitors see the same content.
+const rendererSource = await readFile(resolve(rootDir, '../src/render.ts'), 'utf8')
+const renderer = ts.transpileModule(rendererSource, {
+  compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ES2022 },
+}).outputText
+const { renderDashboard } = await import(`data:text/javascript;base64,${Buffer.from(renderer).toString('base64')}`)
 let html = await readFile(indexFile, 'utf8')
-
-html = html.replace(/<div id="app">[\s\S]*?<\/div>/, `<div id="app">\n      ${noscriptContent}\n    </div>`)
+const appStart = html.indexOf('<div id="app">')
+const appEnd = html.indexOf('<script type="module"', appStart)
+if (appStart < 0 || appEnd < 0) throw new Error('Could not locate the application shell in index.html')
+html = html.slice(0, appStart) + `<div id="app">${renderDashboard(data)}</div>\n    ` + html.slice(appEnd)
 
 const jsonLdTag = `  <script type="application/ld+json">\n${JSON.stringify(jsonLd, null, 2)}\n  </script>`
 if (html.includes('application/ld+json')) {
-  html = html.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/, jsonLdTag)
+  html = html.replace(/^[\t ]*<script type="application\/ld\+json">[\s\S]*?<\/script>/m, jsonLdTag)
 } else {
   html = html.replace('</head>', `${jsonLdTag}\n</head>`)
 }
 
-await writeFile(indexFile, html, 'utf8')
-console.log(`Updated JSON-LD for ${libraries.length} libraries in index.html`)
+await writeFile(indexFile, html.replace(/[\t ]+$/gm, ''), 'utf8')
+console.log(`Rendered dashboard and JSON-LD for ${libraries.length} libraries in index.html`)
